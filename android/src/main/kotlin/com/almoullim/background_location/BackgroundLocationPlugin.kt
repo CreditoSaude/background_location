@@ -14,8 +14,9 @@ class BackgroundLocationPlugin : FlutterPlugin, ActivityAware {
         /**
         Legacy for v1 embedding
          */
-        @SuppressWarnings("deprecation")
-        fun registerWith(registrar: PluginRegistry.Registrar) {
+        @JvmStatic
+        @Suppress("DEPRECATION")
+        fun registerWith(registrar: io.flutter.plugin.common.PluginRegistry.Registrar) {
             val service = BackgroundLocationService.getInstance()
             service.onAttachedToEngine(registrar.context(), registrar.messenger())
             registrar.addRequestPermissionsResultListener(service)
